@@ -13,7 +13,9 @@
       :state="item.goods_state"
       :count="item.goods_count"
       @state-change="getNewState"
-    ></Goods>
+    >
+      <Counter :num="item.goods_count" :id="item.id"></Counter>
+    </Goods>
 
     <!-- Footer区域 -->
     <Footer
@@ -32,8 +34,12 @@ import axios from "axios";
 import Header from "@/components/Header/Header.vue";
 import Goods from "@/components/Goods/Goods.vue";
 import Footer from "@/components/Footer/Footer.vue";
+
+import Counter from "@/components/Counter/Counter.vue";
+
 //导入eventBus.js
 import bus from "@/components/eventBus.js";
+// import Counter from "./components/Counter/Counter.vue";
 export default {
   data() {
     return {
@@ -70,6 +76,7 @@ export default {
     Header,
     Goods,
     Footer,
+    Counter,
   },
   methods: {
     //封装请求列表数据的方法
